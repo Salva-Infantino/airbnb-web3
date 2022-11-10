@@ -1,0 +1,123 @@
+[
+    {
+        "id": 0,
+        "owner": "0xazertyuiopqsdfghjklmwxcvbn",
+        "price": 2,
+        "photoUrl": [
+            "https://media.inmobalia.com/imgV1/B8vEv5Xh_VThvnEqMx4G0ZxU~~H0Ar_8Bn_AfAx~4dnt796zQ9QIPwzdr9PkzIdRpbOaIUG6rQkTUfRM4VBt~CJs4XmwvxWZlKaKEqqp0biWJFMs_pNikt0_qWe9bAS6nmHkSf61K6d4WlnYp9C1FgSA0PbXcXn1WSGLVN2t7D6AOA4hyMB1qUz1gpG4e3KOCD~QrnZvOyXpgfR9TPcSILg3GN5DFjPYpeZqeLCFGAvMfe414itmEDW8JeWeRSkNespuJClyp47kA7WrRXCTsp1XkQMw7GrqU88hKXYrQaPE5FKRE31WgQ7y4hfasEtcN9qBR6Y6hMBu.jpg",
+            "https://proprietes.lefigaro.fr/images/PDF/CMS/articles/420758843-1591196903.56.jpg",
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Sch%C3%B6nau_an_der_Triesting_-_Villa_%28Kirchengasse_11%29.JPG/800px-Sch%C3%B6nau_an_der_Triesting_-_Villa_%28Kirchengasse_11%29.JPG",
+            "https://www.engelvoelkers.com/images/6e40f7f5-a090-4baa-bacb-b03e463c4b18/villa-moderne-en-construction",
+            "https://static.charmingsardinia.com/hotels/1272/gallery/files/villamaestrale-sardinia-01.jpg"
+        ],
+        "name": "Ma maison",
+        "description": "description test",
+        "area": 498,
+        "capacity": 4,
+        "bedroom": 3,
+        "bathroom": 2,
+        "garden": true,
+        "pool": false
+    },
+    {
+        "id": 1,
+        "owner": "0xazertyuiopqsdfghjklmwxcvbn",
+        "price": 1,
+        "photoUrl": [
+            "https://proprietes.lefigaro.fr/images/PDF/CMS/articles/420758843-1591196903.56.jpg",
+            "https://cf.bstatic.com/xdata/images/hotel/max1280x900/295090917.jpg?k=d17621b71b0eaa0c7a37d8d8d02d33896cef75145f61e7d96d296d88375a7d39&o=&hp=1",
+            "https://www.engelvoelkers.com/images/6e40f7f5-a090-4baa-bacb-b03e463c4b18/villa-moderne-en-construction",
+            "https://cdn.lecollectionist.com/lc/production/uploads/photos/house-1910/2018-04-30-214088d759242733859024dd8690041f.jpg?q=65",
+            "https://cf.bstatic.com/xdata/images/hotel/max500/356906872.jpg?k=c00b0c20d4749037550241ff9f32548a863d51a926d342ebdc353b1dd7bf9d7c&o=&hp=1"
+        ],
+        "name": "Ma villa",
+        "description": "bonjour ceci est un test",
+        "area": 500,
+        "capacity": 6,
+        "bedroom": 4,
+        "bathroom": 4,
+        "garden": true,
+        "pool": true
+    },
+    {
+        "id": 2,
+        "owner": "0xazertyuiopqsdfghjklmwxcvbn",
+        "price": 1,
+        "photoUrl": [
+            "https://static.charmingsardinia.com/hotels/1272/gallery/files/villamaestrale-sardinia-01.jpg",
+            "https://media.inmobalia.com/imgV1/B8vEv5Xh_VThvnEqMx4G0ZxU~~H0Ar_8Bn_AfAx~4dnt796zQ9QIPwzdr9PkzIdRpbOaIUG6rQkTUfRM4VBt~CJs4XmwvxWZlKaKEqqp0biWJFMs_pNikt0_qWe9bAS6nmHkSf61K6d4WlnYp9C1FgSA0PbXcXn1WSGLVN2t7D6AOA4hyMB1qUz1gpG4e3KOCD~QrnZvOyXpgfR9TPcSILg3GN5DFjPYpeZqeLCFGAvMfe414itmEDW8JeWeRSkNespuJClyp47kA7WrRXCTsp1XkQMw7GrqU88hKXYrQaPE5FKRE31WgQ7y4hfasEtcN9qBR6Y6hMBu.jpg",
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Sch%C3%B6nau_an_der_Triesting_-_Villa_%28Kirchengasse_11%29.JPG/800px-Sch%C3%B6nau_an_der_Triesting_-_Villa_%28Kirchengasse_11%29.JPG",
+            "https://cf.bstatic.com/xdata/images/hotel/max1280x900/295090917.jpg?k=d17621b71b0eaa0c7a37d8d8d02d33896cef75145f61e7d96d296d88375a7d39&o=&hp=1",
+            "https://cdn.lecollectionist.com/lc/production/uploads/photos/house-1910/2018-04-30-214088d759242733859024dd8690041f.jpg?q=65"
+        ],
+        "name": "Mon penthouse",
+        "description": "voila une autre description",
+        "area": 200,
+        "capacity": 2,
+        "bedroom": 1,
+        "bathroom": 1,
+        "garden": false,
+        "pool": false
+    },
+    {
+        "id": 3,
+        "owner": "0xazertyuiopqsdfghjklmwxcvbn",
+        "price": 3,
+        "photoUrl": [
+            "https://www.engelvoelkers.com/images/6e40f7f5-a090-4baa-bacb-b03e463c4b18/villa-moderne-en-construction",
+            "https://cf.bstatic.com/xdata/images/hotel/max1280x900/295090917.jpg?k=d17621b71b0eaa0c7a37d8d8d02d33896cef75145f61e7d96d296d88375a7d39&o=&hp=1",
+            "https://cdn.lecollectionist.com/lc/production/uploads/photos/house-1910/2018-04-30-214088d759242733859024dd8690041f.jpg?q=65",
+            "https://cf.bstatic.com/xdata/images/hotel/max500/356906872.jpg?k=c00b0c20d4749037550241ff9f32548a863d51a926d342ebdc353b1dd7bf9d7c&o=&hp=1",
+            "https://proprietes.lefigaro.fr/images/PDF/CMS/articles/420758843-1591196903.56.jpg"
+        ],
+        "name": "Appartement",
+        "description": "encore un autre test",
+        "area": 100,
+        "capacity": 2,
+        "bedroom": 2,
+        "bathroom": 2,
+        "garden": false,
+        "pool": false
+    },
+    {
+        "id": 4,
+        "owner": "0xazertyuiopqsdfghjklmwxcvbn",
+        "price": 2,
+        "photoUrl": [
+            "https://cf.bstatic.com/xdata/images/hotel/max500/356906872.jpg?k=c00b0c20d4749037550241ff9f32548a863d51a926d342ebdc353b1dd7bf9d7c&o=&hp=1",
+            "https://media.inmobalia.com/imgV1/B8vEv5Xh_VThvnEqMx4G0ZxU~~H0Ar_8Bn_AfAx~4dnt796zQ9QIPwzdr9PkzIdRpbOaIUG6rQkTUfRM4VBt~CJs4XmwvxWZlKaKEqqp0biWJFMs_pNikt0_qWe9bAS6nmHkSf61K6d4WlnYp9C1FgSA0PbXcXn1WSGLVN2t7D6AOA4hyMB1qUz1gpG4e3KOCD~QrnZvOyXpgfR9TPcSILg3GN5DFjPYpeZqeLCFGAvMfe414itmEDW8JeWeRSkNespuJClyp47kA7WrRXCTsp1XkQMw7GrqU88hKXYrQaPE5FKRE31WgQ7y4hfasEtcN9qBR6Y6hMBu.jpg",
+            "https://proprietes.lefigaro.fr/images/PDF/CMS/articles/420758843-1591196903.56.jpg",
+            "https://www.engelvoelkers.com/images/6e40f7f5-a090-4baa-bacb-b03e463c4b18/villa-moderne-en-construction",
+            "https://static.charmingsardinia.com/hotels/1272/gallery/files/villamaestrale-sardinia-01.jpg"
+        ],
+        "name": "Maison test",
+        "description": "bonjour à nouveau",
+        "area": 90,
+        "capacity": 1,
+        "bedroom": 1,
+        "bathroom": 1,
+        "garden": true,
+        "pool": false
+    },
+    {
+        "id": 5,
+        "owner": "0xazertyuiopqsdfghjklmwxcvbn",
+        "price": 3,
+        "photoUrl": [
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Sch%C3%B6nau_an_der_Triesting_-_Villa_%28Kirchengasse_11%29.JPG/800px-Sch%C3%B6nau_an_der_Triesting_-_Villa_%28Kirchengasse_11%29.JPG",
+            "https://static.charmingsardinia.com/hotels/1272/gallery/files/villamaestrale-sardinia-01.jpg",
+            "https://cf.bstatic.com/xdata/images/hotel/max1280x900/295090917.jpg?k=d17621b71b0eaa0c7a37d8d8d02d33896cef75145f61e7d96d296d88375a7d39&o=&hp=1",
+            "https://www.engelvoelkers.com/images/6e40f7f5-a090-4baa-bacb-b03e463c4b18/villa-moderne-en-construction",
+            "https://media.inmobalia.com/imgV1/B8vEv5Xh_VThvnEqMx4G0ZxU~~H0Ar_8Bn_AfAx~4dnt796zQ9QIPwzdr9PkzIdRpbOaIUG6rQkTUfRM4VBt~CJs4XmwvxWZlKaKEqqp0biWJFMs_pNikt0_qWe9bAS6nmHkSf61K6d4WlnYp9C1FgSA0PbXcXn1WSGLVN2t7D6AOA4hyMB1qUz1gpG4e3KOCD~QrnZvOyXpgfR9TPcSILg3GN5DFjPYpeZqeLCFGAvMfe414itmEDW8JeWeRSkNespuJClyp47kA7WrRXCTsp1XkQMw7GrqU88hKXYrQaPE5FKRE31WgQ7y4hfasEtcN9qBR6Y6hMBu.jpg"
+        ],
+        "name": "Petit studio",
+        "description": "petite description",
+        "area": 120,
+        "capacity": 3,
+        "bedroom": 2,
+        "bathroom": 1,
+        "garden": true,
+        "pool": true
+    }
+    
+]

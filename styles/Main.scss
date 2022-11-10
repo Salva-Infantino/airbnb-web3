@@ -1,0 +1,73 @@
+@import './Filters.scss';
+
+main {
+    .house {
+        .carousel {
+            .carousel-indicators {
+                button {
+                    width: 5px;
+                    height: 5px;
+                    border-radius: 50%;
+                }
+            }
+
+            .carousel-control-prev,
+            .carousel-control-next {
+                opacity: 0;
+                font-size: 1.5rem;
+
+                svg {
+                    background-color: rgba(255, 255, 255, .8);
+                    border-radius: 50%;
+                    padding: 0.25rem;
+
+                    polygon {
+                        fill: black;
+                    }
+                }
+            }
+        }
+
+        img {
+            height: 250px;
+            object-fit: cover;
+        }
+
+        button.heart {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 1.5em;
+            z-index: 1;
+
+            svg {
+
+                &.unchecked {
+                    path:first-of-type {
+                        fill: white
+                    }
+
+                    path:last-of-type {
+                        fill: rgba(0, 0, 0, .5)
+                    }
+                }
+
+                &.checked {
+                    path {
+                        fill: white
+                    }
+                }
+            }
+        }
+
+        &:hover {
+            .carousel {
+
+                .carousel-control-prev,
+                .carousel-control-next {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}

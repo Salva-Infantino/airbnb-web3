@@ -1,0 +1,13 @@
+$danger: #ff385c;
+$secondary: #EBEBEB;
+$transition: .2s;
+
+.fz14 {
+    font-size: 0.875rem;
+}
+
+@import "~bootstrap/scss/bootstrap";
+@import "./Header.scss";
+@import "./Footer.scss";
+@import "./MyColumn.scss";
+@import "./Main.scss";

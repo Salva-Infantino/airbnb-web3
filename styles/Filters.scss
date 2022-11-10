@@ -1,0 +1,198 @@
+.Filter {
+    font-size: 0.75rem;
+    z-index: 9;
+
+    .filter-container {
+
+        .prev-next-button {
+            z-index: 1;
+
+            button {
+                height: 28px;
+                width: 28px;
+                z-index: 1;
+
+                svg {
+                    polygon {
+                        fill: black;
+                    }
+                }
+            }
+
+            &:first-of-type {
+                left: 0;
+
+                &::after {
+                    content: '';
+                    height: 100%;
+                    width: 30px;
+                    position: absolute;
+                    background: linear-gradient(90deg, white 0%, rgba(255, 255, 255, 0) 100%);
+                    left: 100%;
+                }
+            }
+
+            &:last-of-type {
+                right: 0;
+
+                &::before {
+                    content: '';
+                    height: 100%;
+                    width: 30px;
+                    position: absolute;
+                    background: linear-gradient(-90deg, white 0%, rgba(255, 255, 255, 0) 100%);
+                    right: 100%;
+                }
+            }
+        }
+
+        .filter-carousel {
+            -ms-overflow-style: none; // IE and Edge
+            scrollbar-width: none; // Firefox
+
+            &::-webkit-scrollbar {
+                display: none; // Chrome, Safari, Opera
+            }
+
+            button {
+                opacity: .5;
+                flex: 0 0 auto;
+                transition: $transition;
+
+                img,
+                svg {
+                    width: 24px;
+                    height: 24px;
+                }
+
+                span {
+                    border-bottom: 2px solid transparent;
+                    padding-bottom: 14px;
+                }
+
+                &:hover {
+                    opacity: 1;
+
+                    span {
+                        border-color: lightgray;
+                    }
+                }
+
+                &:first-of-type {
+                    margin-left: 0 !important;
+                }
+
+                &.activeFilter {
+                    opacity: 1;
+
+                    span {
+                        border-color: black;
+                    }
+                }
+            }
+        }
+    }
+
+    button {
+        font-size: inherit;
+    }
+
+}
+
+[aria-labelledby="filterModal"] {
+    z-index: 99999 !important;
+
+    .modal-header {
+        button {
+            margin: 0;
+            font-size: .5rem;
+            background-color: transparent;
+            border-radius: 50%;
+            transition: $transition;
+
+            &.btn-close {
+                opacity: 1;
+            }
+
+            &:hover {
+                background-color: $light;
+            }
+        }
+    }
+
+    .modal-body {
+
+        #typeHouse {
+            label {
+                border: 1px solid $secondary;
+                transition: $transition;
+                width: 10rem;
+
+                &:hover {
+                    border-color: black;
+                }
+
+                &:active {
+                    transform: scale(0.9);
+                }
+
+                img {
+                    width: 32px;
+                    height: 32px;
+                }
+            }
+
+            input:checked+label {
+                border-color: black;
+                background-color: $secondary;
+            }
+        }
+
+        #nRooms {
+            label {
+                border: 1px solid $secondary;
+                transition: $transition;
+
+                &:hover {
+                    border-color: black;
+                }
+
+                &:active {
+                    transform: scale(0.9);
+                }
+            }
+
+            input:checked+label {
+                border-color: black;
+                background-color: black;
+                color: white;
+            }
+        }
+
+        #commodation {
+            .form-check {
+                &:hover {
+                    input {
+                        border-color: black;
+                    }
+                }
+
+                input {
+                    width: 24px;
+                    height: 24px;
+                    cursor: pointer;
+
+                    &:checked {
+                        background-color: black;
+                        border-color: black;
+                    }
+                }
+
+                label {
+                    cursor: pointer;
+                    margin-left: 1rem;
+                }
+            }
+        }
+    }
+}

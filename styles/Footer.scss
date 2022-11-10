@@ -1,0 +1,47 @@
+footer {
+    a {
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    button {
+        text-decoration: none !important;
+
+        &:hover {
+            text-decoration: underline !important;
+        }
+    }
+
+}
+
+[aria-labelledby="modalFooter"] {
+    display: flex !important;
+    align-items: flex-end;
+
+    a {
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    .modal-dialog {
+        max-width: 100%;
+        width: 100%;
+
+        .modal-content {
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+    }
+
+    .closeButton {
+        position: absolute;
+        top: 24px;
+        left: 24px;
+    }
+}

@@ -1,0 +1,222 @@
+[
+    {
+        "name": "Lacs",
+        "url": "./icons/lacs.jpg"
+    },
+    {
+        "name": "Campagne",
+        "url": "./icons/campagne.jpg"
+    },
+    {
+        "name": "Piscines",
+        "url": "./icons/piscines.jpg"
+    },
+    {
+        "name": "Ski",
+        "url": "./icons/ski.jpg"
+    },
+    {
+        "name": "Cabanes",
+        "url": "./icons/cabanes.jpg"
+    },
+    {
+        "name": "Avec vue",
+        "url": "./icons/vue.jpg"
+    },
+    {
+        "name": "Tiny houses",
+        "url": "./icons/tiny.jpg"
+    },
+    {
+        "name": "Wow !",
+        "url": "./icons/wow.jpg"
+    },
+    {
+        "name": "Luxe",
+        "url": "./icons/luxe.jpg"
+    },
+    {
+        "name": "Dômes",
+        "url": "./icons/domes.jpg"
+    },
+    {
+        "name": "Parcs nationaux",
+        "url": "./icons/parcs.jpg"
+    },
+    {
+        "name": "Cabanes perchées",
+        "url": "./icons/perchees.jpg"
+    },
+    {
+        "name": "Design",
+        "url": "./icons/design.jpg"
+    },
+    {
+        "name": "Châteaux",
+        "url": "./icons/chateaux.jpg"
+    },
+    {
+        "name": "Bord de mer",
+        "url": "./icons/mer.jpg"
+    },
+    {
+        "name": "Séjours déconnectés",
+        "url": "./icons/deconnectes.jpg"
+    },
+    {
+        "name": "Sur l'eau",
+        "url": "./icons/eau.jpg"
+    },
+    {
+        "name": "Chambres d'hôtes",
+        "url": "./icons/hotes.jpg"
+    },
+    {
+        "name": "Plages",
+        "url": "./icons/plages.jpg"
+    },
+    {
+        "name": "Sous les tropiques",
+        "url": "./icons/tropiques.jpg"
+    },
+    {
+        "name": "Bateaux",
+        "url": "./icons/bateaux.jpg"
+    },
+    {
+        "name": "Fermes",
+        "url": "./icons/fermes.jpg"
+    },
+    {
+        "name": "Ville emblématiques",
+        "url": "./icons/emblematiques.jpg"
+    },
+    {
+        "name": "Chalet tipi",
+        "url": "./icons/tipi.jpg"
+    },
+    {
+        "name": "Bord de lac",
+        "url": "./icons/lac.jpg"
+    },
+    {
+        "name": "Îles",
+        "url": "./icons/iles.jpg"
+    },
+    {
+        "name": "Grandes demeures",
+        "url": "./icons/demeures.jpg"
+    },
+    {
+        "name": "Granges",
+        "url": "./icons/granges.jpg"
+    },
+    {
+        "name": "Au pied des pistes",
+        "url": "./icons/pistes.jpg"
+    },
+    {
+        "name": "Caravanes",
+        "url": "./icons/caravanes.jpg"
+    },
+    {
+        "name": "Maisons partagées",
+        "url": "./icons/partagees.jpg"
+    },
+    {
+        "name": "Patrimoine",
+        "url": "./icons/patrimoine.jpg"
+    },
+    {
+        "name": "Yourtes",
+        "url": "./icons/yourtes.jpg"
+    },
+    {
+        "name": "Tours",
+        "url": "./icons/tours.jpg"
+    },
+    {
+        "name": "Maisons troglodytes",
+        "url": "./icons/troglodytes.jpg"
+    },
+    {
+        "name": "Vignobles",
+        "url": "./icons/vignobles.jpg"
+    },
+    {
+        "name": "Art et créativité",
+        "url": "./icons/creativite.jpg"
+    },
+    {
+        "name": "Maisons organiques",
+        "url": "./icons/organiques.jpg"
+    },
+    {
+        "name": "Moulins à vent",
+        "url": "./icons/moulin.jpg"
+    },
+    {
+        "name": "Arctique",
+        "url": "./icons/arctique.jpg"
+    },
+    {
+        "name": "Riads",
+        "url": "./icons/riads.jpg"
+    },
+    {
+        "name": "Désert",
+        "url": "./icons/desert.jpg"
+    },
+    {
+        "name": "Surf",
+        "url": "./icons/surf.jpg"
+    },
+    {
+        "name": "Conteneurs maritimes",
+        "url": "./icons/conteneurs.jpg"
+    },
+    {
+        "name": "Cabanes de berger",
+        "url": "./icons/berger.jpg"
+    },
+    {
+        "name": "Maisons cycladiques",
+        "url": "./icons/cycladiques.jpg"
+    },
+    {
+        "name": "Casas particulares",
+        "url": "./icons/casas.jpg"
+    },
+    {
+        "name": "Golf",
+        "url": "./icons/golf.jpg"
+    },
+    {
+        "name": "Pianos à queue",
+        "url": "./icons/piano.jpg"
+    },
+    {
+        "name": "Ryokans",
+        "url": "./icons/ryokans.jpg"
+    },
+    {
+        "name": "Cuisines équipées",
+        "url": "./icons/cuisines.jpg"
+    },
+    {
+        "name": "Trulli",
+        "url": "./icons/trulli.jpg"
+    },
+    {
+        "name": "Minsus",
+        "url": "./icons/minsus.jpg"
+    },
+    {
+        "name": "Camping",
+        "url": "./icons/camping.jpg"
+    },
+    {
+        "name": "Dammusi",
+        "url": "./icons/dammusi.jpg"
+    }
+]
