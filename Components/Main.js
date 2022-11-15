@@ -7,7 +7,7 @@ import { AiTwotoneHeart } from 'react-icons/ai';
 import { shortenAddress } from '../Utils/shortenAddress';
 import { FcPrevious, FcNext } from 'react-icons/fc';
 import Filters from './Filters';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const MyCarousel = ({name, photoUrl}) => {
 
@@ -45,6 +45,10 @@ const Main = () => {
         setFavorites(updatedList);
         localStorage.setItem('favorites', updatedList)
     }
+
+    useEffect(() => {
+        setFavorites(JSON.parse("[" + localStorage.getItem('favorites') + "]"));
+    }, [])
 
     return (
         <main>

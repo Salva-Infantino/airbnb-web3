@@ -2,7 +2,7 @@ import { Button, Container, Modal, Form, Row, Col } from 'react-bootstrap';
 import filters from '../Json/filters.json';
 import { FcPrevious, FcNext } from 'react-icons/fc';
 import { useState, useContext, useRef } from 'react';
-import { MyContext } from '../pages/index';
+import { MyContext } from '../pages/_app';
 import { TbWorld } from 'react-icons/tb';
 
 const FilterIcon = () => <svg viewBox="0 0 16 16" 

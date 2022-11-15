@@ -4,9 +4,12 @@ import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
 import { Container, Row, Col, Button, Dropdown, Modal } from 'react-bootstrap';
 import Link from 'next/link';
 import { BiSearch } from 'react-icons/bi';
-import { MyContext } from '../pages/index';
+import { MyContext } from '../pages/_app';
 
-const ModalPets = ({showPets, setShowPets}) => {
+import DatePicker from './DatePicker';
+
+
+const ModalPets = ({showPets, setShowPets, origin}) => {
     return (
         <Modal
             show={showPets}
@@ -17,7 +20,7 @@ const ModalPets = ({showPets, setShowPets}) => {
         >
             <Modal.Header closeButton className='border-0 pb-0'></Modal.Header>
             <Modal.Body className='p-4'>
-                <img src='./img/modalPets.jpeg' alt='Animals de compagnies' className='w-100' />
+                <img src={origin + '/img/modalPets.jpeg'} alt='Animals de compagnies' className='w-100' />
                 <p className='fs-4 fw-bold mt-3'>Animaux d&apos;assistance</p>
                 <p>Les animaux d&apos;assistance ne sont pas des animaux de compagnie. Il n&apos;est donc pas nécessaire de les ajouter ici.</p>
                 <p>Vous voyagez avec un animal de soutien émotionnel ? Consultez notre <Link href="/"><a className='text-dark fw-bold'>politique en matière d&apos;accessibilité</a></Link>.</p>
@@ -28,19 +31,14 @@ const ModalPets = ({showPets, setShowPets}) => {
 
 const Header = () => {
 
-    const {searchOpen, setSearchOpen, filterModalShow} = useContext(MyContext);
+    const {searchOpen, setSearchOpen, filterModalShow, origin, dateStart, dateEnd} = useContext(MyContext);
 
     const [logged, setLogged] = useState(false);
 
     const [destinationOpen, setDestinationOpen] = useState(false);
     const [destination, setDestination] = useState('');
 
-    const [dateStartOpen, setDateStartOpen] = useState(false);
-    const [dateStart, setDateStart] = useState();
-
-    const [dateEndOpen, setDateEndOpen] = useState(false);
-    const [dateEnd, setDateEnd] = useState();
-
+    const [dateOpen, setDateOpen] = useState(false)
 
     const [peopleOpen, setPeopleOpen] = useState(false);
     const [adults, setAdults] = useState(0);
@@ -51,55 +49,53 @@ const Header = () => {
 
     const [showPets, setShowPets] = useState(false);
 
-    const editSearchBox = (destination, start, end, people) => {
+    const editSearchBox = (destination, date, people) => {
         setDestinationOpen(destination);
-        setDateStartOpen(start);
-        setDateEndOpen(end);
+        setDateOpen(date);
         setPeopleOpen(people);
     }
 
     const changeDestination = (e) => {
         setDestination(e.target.value);
         setDestinationOpen(false);
-        setDateStartOpen(true);
+        setDateOpen(true);
     }
 
     const closeSearchDiv = (e) => {
         const element = document.querySelector('#big-nav-center');
 
         if (e.target !== element && !element.contains(e.target)) {
-            editSearchBox(false, false, false, false);
+            editSearchBox(false, false, false);
         }
     }
 
     useEffect(() => {
-        destinationOpen && editSearchBox(true, false, false, false);
+        destinationOpen && editSearchBox(true, false, false);
         
     }, [destinationOpen])
 
     useEffect(() => {
-        dateStartOpen && editSearchBox(false, true, false, false);
+        dateOpen && editSearchBox(false, true, false);
         
-    }, [dateStartOpen])
+    }, [dateOpen])
 
     useEffect(() => {
-        dateEndOpen && editSearchBox(false, false, true, false);
-        
-    }, [dateEndOpen])
-
-    useEffect(() => {
-        peopleOpen && editSearchBox(false, false, false, true);
+        peopleOpen && editSearchBox(false, false, true);
         
     }, [peopleOpen])
 
     useEffect(() => {
-        !searchOpen && editSearchBox(false, false, false, false);
+        !searchOpen && editSearchBox(false, false, false);
         
     }, [searchOpen])
 
     useEffect(() => {
         setPeople(adults + kids);
     }, [adults, kids])
+
+    useEffect(() => {
+        setSearchOpen(false);
+    }, [])
 
     return (
         <header
@@ -181,7 +177,7 @@ const Header = () => {
                     <Row className='justify-content-center align-items-center pb-3'>
                         <Col sm={8} id='big-nav-center'>
                             <Row>
-                                <div className={`fz14 border rounded-pill d-inline-flex justify-content-center align-items-center w-100 p-0 position-relative ${destinationOpen | dateStartOpen | dateEndOpen | peopleOpen && 'bg-secondary'}`}>
+                                <div className={`fz14 border rounded-pill d-inline-flex justify-content-center align-items-center w-100 p-0 position-relative ${destinationOpen | dateOpen | peopleOpen && 'bg-secondary'}`}>
                                     <Col sm={4} className='position-relative'>
                                         <div className={`searchBox rounded-pill ${destinationOpen && 'shadow bg-white'}`}
                                             role='button'
@@ -206,7 +202,7 @@ const Header = () => {
                                                             <input type="radio" id="flexible" name="destination" value="Je suis flexible" className='d-none'
                                                             onChange={(e) => changeDestination(e)} />
                                                             <label htmlFor="flexible" className='d-flex flex-column'>
-                                                                <img src='./img/world.jpeg' alt='Je suis flexible' />
+                                                                <img src={origin + '/img/world.jpeg'} alt='Je suis flexible' />
                                                                 <span className='my-2'>Je suis flexible</span>
                                                             </label>
                                                         </div>
@@ -216,7 +212,7 @@ const Header = () => {
                                                             <input type="radio" id="usa" name="destination" value="États-Unis" className='d-none'
                                                             onChange={(e) => changeDestination(e)} />
                                                             <label htmlFor="usa" className='d-flex flex-column'>
-                                                                <img src='./img/usa.webp' alt='États-Unis' />
+                                                                <img src={origin + '/img/usa.webp'} alt='États-Unis' />
                                                                 <span className='my-2'>États-Unis</span>
                                                             </label>
                                                         </div>
@@ -226,7 +222,7 @@ const Header = () => {
                                                             <input type="radio" id="france" name="destination" value="France" className='d-none'
                                                             onChange={(e) => changeDestination(e)} />
                                                             <label htmlFor="france" className='d-flex flex-column'>
-                                                                <img src='./img/france.webp' alt='France' />
+                                                                <img src={origin + '/img/france.webp'} alt='France' />
                                                                 <span className='my-2'>France</span>
                                                             </label>
                                                         </div>
@@ -236,7 +232,7 @@ const Header = () => {
                                                             <input type="radio" id="italy" name="destination" value="Italy" className='d-none'
                                                             onChange={(e) => changeDestination(e)} />
                                                             <label htmlFor="italy" className='d-flex flex-column'>
-                                                                <img src='./img/italy.webp' alt='Italy' />
+                                                                <img src={origin + '/img/italy.webp'} alt='Italy' />
                                                                 <span className='my-2'>Italy</span>
                                                             </label>
                                                         </div>
@@ -246,7 +242,7 @@ const Header = () => {
                                                             <input type="radio" id="asia" name="destination" value="Asie" className='d-none'
                                                             onChange={(e) => changeDestination(e)} />
                                                             <label htmlFor="asia" className='d-flex flex-column'>
-                                                                <img src='./img/asia.webp' alt='Asie' />
+                                                                <img src={origin + '/img/asia.webp'} alt='Asie' />
                                                                 <span className='my-2'>Asie</span>
                                                             </label>
                                                         </div>
@@ -256,7 +252,7 @@ const Header = () => {
                                                             <input type="radio" id="africa" name="destination" value="Afrique" className='d-none'
                                                             onChange={(e) => changeDestination(e)} />
                                                             <label htmlFor="africa" className='d-flex flex-column'>
-                                                                <img src='./img/africa.webp' alt='Afrique' />
+                                                                <img src={origin + '/img/africa.webp'} alt='Afrique' />
                                                                 <span className='my-2'>Afrique</span>
                                                             </label>
                                                         </div>
@@ -265,37 +261,32 @@ const Header = () => {
                                             </div>
                                         }
                                     </Col>
-                                    <Col sm={2}>
-                                        <div className={`searchBox rounded-pill ${dateStartOpen && 'shadow bg-white'}`}
+                                    <Col sm={4}>
+                                        <div className={`searchBox rounded-pill d-flex justify-content-center ${dateOpen && 'shadow bg-white'}`}
                                             role='button'
-                                            onClick={() => setDateStartOpen(true)}>
+                                            onClick={() => setDateOpen(true)}>
                                             <div>
                                                 <p className='fw-bold m-0'>Arrivée</p>
-                                                <p className='fw-lighter text-muted m-0'>Quand ?</p>
+                                                {
+                                                    dateStart ? 
+                                                    <p className='m-0'>{dateStart}</p> : 
+                                                    <p className='fw-lighter text-muted m-0'>Quand ?</p>
+                                                }
                                             </div>
-                                        </div>
-
-                                        {
-                                            dateStartOpen &&
-                                            <div className='myModal position-absolute start-0 bg-white p-5 mt-3 shadow' id='modalDateStart'>
-                                                test start
-                                            </div>
-                                        }
-                                    </Col>
-                                    <Col sm={2}>
-                                        <div className={`searchBox rounded-pill ${dateEndOpen && 'shadow bg-white'}`}
-                                            role='button'
-                                            onClick={() => setDateEndOpen(true)}>
                                             <div>
                                                 <p className='fw-bold m-0'>Départ</p>
-                                                <p className='fw-lighter text-muted m-0'>Quand ?</p>
+                                                {
+                                                    dateEnd ? 
+                                                    <p className='m-0'>{dateEnd}</p> : 
+                                                    <p className='fw-lighter text-muted m-0'>Quand ?</p>
+                                                }
                                             </div>
                                         </div>
 
                                         {
-                                            dateEndOpen &&
+                                            dateOpen &&
                                             <div className='myModal position-absolute start-0 bg-white p-5 mt-3 shadow' id='modalDateEnd'>
-                                                test end
+                                                <DatePicker setPeopleOpen={setPeopleOpen} />
                                             </div>
                                         }
                                     </Col>
@@ -307,7 +298,7 @@ const Header = () => {
                                                 <p className='fw-bold m-0'>Voyageurs</p>
                                                 {
                                                     people > 0 ?
-                                                    <p className='m-0' id='who' style={{width: destinationOpen | dateStartOpen | dateEndOpen | peopleOpen ? '80px' : '150px'}}>
+                                                    <p className='m-0' id='who' style={{width: destinationOpen | dateOpen | peopleOpen ? '80px' : '150px'}}>
                                                         {people} voyageur{people > 1 && 's'}
                                                         {
                                                             babies > 0 &&
@@ -323,12 +314,12 @@ const Header = () => {
                                             </div>
                                             <Button variant='danger'
                                                 className={`
-                                                    ${destinationOpen | dateStartOpen | dateEndOpen | peopleOpen && 'bg-gradient'}
+                                                    ${destinationOpen | dateOpen | peopleOpen && 'bg-gradient'}
                                                     text-white rounded-pill border-0 d-flex justify-content-center align-items-center position-absolute
                                                 `}>
                                                 <BiSearch/>
                                                 {
-                                                    destinationOpen | dateStartOpen | dateEndOpen | peopleOpen ? 
+                                                    destinationOpen | dateOpen | peopleOpen ? 
                                                     <span className='ms-1'>Recherche</span> : null
                                                 }
                                             </Button>
@@ -425,7 +416,7 @@ const Header = () => {
                 </Container>
             </div>
 
-            <ModalPets showPets={showPets} setShowPets={setShowPets} />
+            <ModalPets showPets={showPets} setShowPets={setShowPets} origin={origin} />
         </header>
     )
 }
