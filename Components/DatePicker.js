@@ -1,35 +1,37 @@
-import React, { useState, useContext } from "react";
-import DateRangePicker from "react-daterange-picker";
-import "react-daterange-picker/dist/css/react-calendar.css";
-import originalMoment from "moment";
-import { extendMoment } from "moment-range";
+import React, { useContext, useEffect } from "react";
 import { MyContext } from "../pages/_app";
-const moment = extendMoment(originalMoment);
 
-const Example = ({setPeopleOpen}) => {
+import 'react-date-range/dist/styles.css'; // main css file
+import 'react-date-range/dist/theme/default.css'; // theme css file
+import { Calendar } from "react-date-range";
 
-    const {setDateStart, setDateEnd} = useContext(MyContext);
+const DatePicker = ({nextOpen, range}) => {
 
-    const [value, setValue] = useState(null);
+    const {dateStart, setDateStart, dateEnd, setDateEnd} = useContext(MyContext);
 
-    const onSelect = (value) => {
-        setDateStart(value.start.format("MMM DD"));
-        setDateEnd(value.end.format("MMM DD"));
-        setValue(value);
-        setPeopleOpen(true)
-    };
+    const pickedDate = (item) => {
+        range === 'start' ? setDateStart(item) : range === 'end' && setDateEnd(item);
+        nextOpen(true)
+    }
+
+    useEffect(() => {
+        dateStart && setDateStart(dateStart);
+        dateEnd && setDateEnd(dateEnd);
+    }, [])
 
     return (
-        <DateRangePicker
-            value={value}
-            onSelect={onSelect}
-            singleDateRange={true}
-            numberOfCalendars={2}
-            locale='fr'
-            minimumDate={new Date()}
-            maximumDate={new Date(new Date().setFullYear(new Date().getFullYear() + 1))}
+        <Calendar 
+            onChange={item => pickedDate(item)} 
+            date={range === 'start' ? dateStart : range === 'end' && dateEnd}
+            months={2}
+            direction='horizontal'
+            minDate={new Date()}
+            maxDate={new Date(new Date().setFullYear(new Date().getFullYear() + 1))}
+            showMonthAndYearPickers={false}
+            monthDisplayFormat='MMMM yyyy'
+            weekdayDisplayFormat='E.'
         />
     );
 }
 
-export default Example;
+export default DatePicker;

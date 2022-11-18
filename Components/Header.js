@@ -7,6 +7,7 @@ import { BiSearch } from 'react-icons/bi';
 import { MyContext } from '../pages/_app';
 
 import DatePicker from './DatePicker';
+import moment from 'moment';
 
 
 const ModalPets = ({showPets, setShowPets, origin}) => {
@@ -31,14 +32,15 @@ const ModalPets = ({showPets, setShowPets, origin}) => {
 
 const Header = () => {
 
-    const {searchOpen, setSearchOpen, filterModalShow, origin, dateStart, dateEnd} = useContext(MyContext);
+    const {searchOpen, setSearchOpen, filterModalShow, origin, dateStart, dateEnd, showModalFooter} = useContext(MyContext);
 
     const [logged, setLogged] = useState(false);
 
     const [destinationOpen, setDestinationOpen] = useState(false);
     const [destination, setDestination] = useState('');
 
-    const [dateOpen, setDateOpen] = useState(false)
+    const [dateStartOpen, setDateStartOpen] = useState(false)
+    const [dateEndOpen, setDateEndOpen] = useState(false)
 
     const [peopleOpen, setPeopleOpen] = useState(false);
     const [adults, setAdults] = useState(0);
@@ -49,16 +51,17 @@ const Header = () => {
 
     const [showPets, setShowPets] = useState(false);
 
-    const editSearchBox = (destination, date, people) => {
+    const editSearchBox = (destination, start, end, people) => {
         setDestinationOpen(destination);
-        setDateOpen(date);
+        setDateStartOpen(start);
+        setDateEndOpen(end);
         setPeopleOpen(people);
     }
 
     const changeDestination = (e) => {
         setDestination(e.target.value);
         setDestinationOpen(false);
-        setDateOpen(true);
+        setDateStartOpen(true);
     }
 
     const closeSearchDiv = (e) => {
@@ -70,22 +73,27 @@ const Header = () => {
     }
 
     useEffect(() => {
-        destinationOpen && editSearchBox(true, false, false);
+        destinationOpen && editSearchBox(true, false, false, false);
         
     }, [destinationOpen])
 
     useEffect(() => {
-        dateOpen && editSearchBox(false, true, false);
+        dateStartOpen && editSearchBox(false, true, false, false);
         
-    }, [dateOpen])
+    }, [dateStartOpen])
 
     useEffect(() => {
-        peopleOpen && editSearchBox(false, false, true);
+        dateEndOpen && editSearchBox(false, false, true, false);
+        
+    }, [dateEndOpen])
+
+    useEffect(() => {
+        peopleOpen && editSearchBox(false, false, false, true);
         
     }, [peopleOpen])
 
     useEffect(() => {
-        !searchOpen && editSearchBox(false, false, false);
+        !searchOpen && editSearchBox(false, false, false, false);
         
     }, [searchOpen])
 
@@ -99,7 +107,7 @@ const Header = () => {
 
     return (
         <header
-            className={`sticky-top top-0 bg-white ${showPets | filterModalShow ? '' : 'z99999'}`}
+            className={`sticky-top top-0 bg-white ${showPets | filterModalShow | showModalFooter ? '' : 'z99999'}`}
             onClick={(e) => closeSearchDiv(e)}
         >
             <div className='py-3 position-relative'>
@@ -177,7 +185,7 @@ const Header = () => {
                     <Row className='justify-content-center align-items-center pb-3'>
                         <Col sm={8} id='big-nav-center'>
                             <Row>
-                                <div className={`fz14 border rounded-pill d-inline-flex justify-content-center align-items-center w-100 p-0 position-relative ${destinationOpen | dateOpen | peopleOpen && 'bg-secondary'}`}>
+                                <div className={`fz14 border rounded-pill d-inline-flex justify-content-center align-items-center w-100 p-0 position-relative ${destinationOpen | dateStartOpen | dateEndOpen | peopleOpen && 'bg-secondary'}`}>
                                     <Col sm={4} className='position-relative'>
                                         <div className={`searchBox rounded-pill ${destinationOpen && 'shadow bg-white'}`}
                                             role='button'
@@ -261,32 +269,45 @@ const Header = () => {
                                             </div>
                                         }
                                     </Col>
-                                    <Col sm={4}>
-                                        <div className={`searchBox rounded-pill d-flex justify-content-center ${dateOpen && 'shadow bg-white'}`}
+                                    <Col sm={2}>
+                                        <div className={`searchBox rounded-pill ${dateStartOpen && 'shadow bg-white'}`}
                                             role='button'
-                                            onClick={() => setDateOpen(true)}>
+                                            onClick={() => setDateStartOpen(true)}>
                                             <div>
                                                 <p className='fw-bold m-0'>Arrivée</p>
                                                 {
                                                     dateStart ? 
-                                                    <p className='m-0'>{dateStart}</p> : 
-                                                    <p className='fw-lighter text-muted m-0'>Quand ?</p>
-                                                }
-                                            </div>
-                                            <div>
-                                                <p className='fw-bold m-0'>Départ</p>
-                                                {
-                                                    dateEnd ? 
-                                                    <p className='m-0'>{dateEnd}</p> : 
+                                                    <p className='m-0'>{moment(dateStart).format('MMM DD')}</p> : 
                                                     <p className='fw-lighter text-muted m-0'>Quand ?</p>
                                                 }
                                             </div>
                                         </div>
 
                                         {
-                                            dateOpen &&
-                                            <div className='myModal position-absolute start-0 bg-white p-5 mt-3 shadow' id='modalDateEnd'>
-                                                <DatePicker setPeopleOpen={setPeopleOpen} />
+                                            dateStartOpen &&
+                                            <div className='myModal position-absolute start-0 bg-white p-5 mt-3 shadow w-100 text-center' id='modalDateEnd'>
+                                                <DatePicker nextOpen={setDateEndOpen} range='start' />
+                                            </div>
+                                        }
+                                    </Col>
+                                    <Col sm={2}>
+                                        <div className={`searchBox rounded-pill ${dateEndOpen && 'shadow bg-white'}`}
+                                            role='button'
+                                            onClick={() => setDateEndOpen(true)}>
+                                            <div>
+                                                <p className='fw-bold m-0'>Arrivée</p>
+                                                {
+                                                    dateEnd ? 
+                                                    <p className='m-0'>{moment(dateEnd).format('MMM DD')}</p> :
+                                                    <p className='fw-lighter text-muted m-0'>Quand ?</p>
+                                                }
+                                            </div>
+                                        </div>
+
+                                        {
+                                            dateEndOpen &&
+                                            <div className='myModal position-absolute start-0 bg-white p-5 mt-3 shadow w-100 text-center' id='modalDateEnd'>
+                                                <DatePicker nextOpen={setPeopleOpen} range='end' />
                                             </div>
                                         }
                                     </Col>
@@ -298,7 +319,7 @@ const Header = () => {
                                                 <p className='fw-bold m-0'>Voyageurs</p>
                                                 {
                                                     people > 0 ?
-                                                    <p className='m-0' id='who' style={{width: destinationOpen | dateOpen | peopleOpen ? '80px' : '150px'}}>
+                                                    <p className='m-0' id='who' style={{width: destinationOpen | dateStartOpen | dateEndOpen | peopleOpen ? '80px' : '150px'}}>
                                                         {people} voyageur{people > 1 && 's'}
                                                         {
                                                             babies > 0 &&
@@ -314,12 +335,12 @@ const Header = () => {
                                             </div>
                                             <Button variant='danger'
                                                 className={`
-                                                    ${destinationOpen | dateOpen | peopleOpen && 'bg-gradient'}
+                                                    ${destinationOpen | dateStartOpen | dateEndOpen | peopleOpen && 'bg-gradient'}
                                                     text-white rounded-pill border-0 d-flex justify-content-center align-items-center position-absolute
                                                 `}>
                                                 <BiSearch/>
                                                 {
-                                                    destinationOpen | dateOpen | peopleOpen ? 
+                                                    destinationOpen | dateStartOpen | dateEndOpen | peopleOpen ? 
                                                     <span className='ms-1'>Recherche</span> : null
                                                 }
                                             </Button>

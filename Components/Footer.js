@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import { Container, Modal, Button, Row, Col } from 'react-bootstrap';
 import Link from 'next/link';
 import { TbWorld } from 'react-icons/tb';
 import { FaAngleUp, FaEthereum } from 'react-icons/fa';
 import { GrClose } from 'react-icons/gr';
+import { MyContext } from '../pages/_app';
 
 const ModalFooter = ({showModalFooter, setShowModalFooter}) => {
     return (
@@ -111,7 +112,7 @@ const ModalFooter = ({showModalFooter, setShowModalFooter}) => {
 }
 
 const Footer = () => {
-    const [showModalFooter, setShowModalFooter] = useState(false);
+    const {showModalFooter, setShowModalFooter} = useContext(MyContext);
 
     return (
         <footer className='fixed-bottom border-top py-2 bg-white'>

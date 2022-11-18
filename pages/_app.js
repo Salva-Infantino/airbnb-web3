@@ -10,6 +10,7 @@ function MyApp({ Component, pageProps }) {
   const [filterModalShow, setFilterModalShow] = useState(false);
   const [dateStart, setDateStart] = useState(null);
   const [dateEnd, setDateEnd] = useState(null);
+  const [showModalFooter, setShowModalFooter] = useState(false);
 
   const origin = typeof window !== 'undefined' && window.location.origin ? window.location.origin : '';
 
@@ -21,7 +22,8 @@ function MyApp({ Component, pageProps }) {
                 filterModalShow, setFilterModalShow,
                 origin,
                 dateStart, setDateStart,
-                dateEnd, setDateEnd
+                dateEnd, setDateEnd,
+                showModalFooter, setShowModalFooter
             }}>
       <Component {...pageProps} />
     </MyContext.Provider>

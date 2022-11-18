@@ -1,0 +1,90 @@
+.rdrCalendarWrapper {
+    position: relative;
+
+    .rdrMonthAndYearWrapper {
+        padding-top: 0;
+        position: absolute;
+        top: -5px;
+        width: 100%;
+
+        .rdrNextPrevButton {
+            border-radius: 50%;
+            background-color: transparent;
+            transform: scale(1.5);
+            transition: $transition;
+
+            &:hover {
+                background-color: $secondary;
+            }
+        }
+
+        .rdrMonthAndYearPickers {
+            display: none;
+        }
+    }
+
+    .rdrMonths {
+        .rdrMonth {
+            width: auto;
+
+            .rdrMonthName {
+                text-align: center;
+                font-size: 1rem;
+                color: black;
+            }
+        }
+    }
+
+    .rdrDays {
+
+        button {
+            width: 44px;
+            height: 44px;
+
+            .rdrDayNumber {
+                width: 44px;
+                height: 44px;
+                border: 2px solid transparent;
+                border-radius: 50%;
+                font-weight: bold;
+            }
+
+            &.rdrDayToday {
+                span {
+                    span {
+                        &::after {
+                            display: none;
+                        }
+                    }
+                }
+            }
+
+            &.rdrDayDisabled {
+                background-color: transparent;
+                cursor: default;
+            }
+
+            &.rdrDayPassive {
+                opacity: 0;
+            }
+
+            &.rdrDayHovered {
+                .rdrDayStartPreview.rdrDayEndPreview {
+                    border: none;
+                }
+
+                .rdrDayNumber {
+                    border-color: black;
+
+                }
+            }
+
+            &.rdrDayActive {
+                .rdrDayNumber {
+                    border-color: black;
+                    color: white;
+                }
+            }
+        }
+    }
+}
